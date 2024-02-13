@@ -73,7 +73,7 @@ def contact_form(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            subject = 'New message from Jacinto.com'
+            subject = 'New feedback from Personal Website'
             message = f'Name: {form.cleaned_data["name"]}\nEmail: {form.cleaned_data["email"]}\n\nNote:\n{form.cleaned_data["note"]}'
             from_email = settings.EMAIL_HOST_USER
             recipient_list = [settings.CONTACT_EMAIL]
