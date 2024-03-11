@@ -29,7 +29,7 @@ DEBUG = config("DEBUG") == "True"
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'pw-env9.eba-pcxiim8c.us-west-2.elasticbeanstalk.com',
+    'pw-env2.eba-q3eqbj6z.us-west-2.elasticbeanstalk.com',
 ]
 
 
