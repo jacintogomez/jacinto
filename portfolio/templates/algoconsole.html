@@ -19,68 +19,63 @@
         padding: 3px;
     }
     .split-right{
+        text-align: center;
         flex: 2;
         overflow-y: scroll;
-        border: 1px solid #ccc;
     }
     .hidden {
         display: none;
     }
-    input:hover{
+    input:hover,button:hover{
         border: 2px solid aqua;
-      /*box-shadow: 5px 10px 18px black;*/
     }
-    button:hover{
-        border: 2px solid aqua;
-      /*box-shadow: 5px 10px 18px black;*/
+    input:focus,select:focus{
+        outline: none;
+        border: 2px solid mediumpurple;
     }
-    .center{
-        text-align: center;
+    input{
+        border-radius:10px;
+        padding-left: 7px;
     }
-    body {
-        background-image: url("{% static 'img/rainbowbackground.png' %}");
-        background-repeat: repeat;
-        background-size: cover;
+    select{
+        border-width: 2px;
+    }
+    body{
+        /*background-image: url("https://marketplace.canva.com/EAD2962NKnQ/2/0/1600w/canva-rainbow-gradient-pink-and-purple-zoom-virtual-background-_Tcjok-d9b4.jpg");*/
+        /*background-repeat: repeat;*/
+        /*background-size: cover;*/
+        background: radial-gradient(circle,mediumpurple,aqua);
     }
     .console{
         background-color: black;
         color: white;
         font-family: monospace;
-        width: 950px;
-        position: absolute;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        height: 450px;
+        width: 60vw;
+        /*position: absolute;*/
         overflow-y: scroll;
         resize: vertical;
         text-align: left;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 3%;
+        padding-top: 3%;
     }
     button{
-        position: relative;
-        overflow: hidden;
         border-radius: 10px;
-        background-color: mediumpurple;
-        color: white;
-        width: 200px;
-        height: 60px;
-    }
-    button span{
-        position: absolute;
-        border-radius: 50%;
-        background-color: rgba(0,0,0,0.3);
+        background-color: #00FFD4;
+        color: black;
         width: 100px;
-        height: 100px;
-        margin-top: -50px;
-        margin-left: -50px;
-        animation: ripple 1s;
-        opacity: 0;
+        height: 30px;
     }
-    @keyframes ripple{
-        from{
-            opacity: 1;
-            transform: scale(0);
-        }
-        to{
-            opacity: 0;
-            transform: scale(10);
-        }
+    .directions{
+        display: flex;
+    }
+    .field{
+        flex: 1;
     }
     </style>
 </head>
@@ -156,53 +151,39 @@
             <h5>------------------------------------------------------------------------------------------------------</h5>
         </div>
         <div class="split-right">
-            <h1 style='text-align:center;'>Algo Tracer</h1>
-            <h5 style='text-align:center;'>Created by Jacinto Gomez</h5>
-            <h4 style='text-align:center;'>Choose an algorithm below and enter an array to watch it be sorted step by step<br>The left has some descriptions of how these algorithms work</h4>
-            <br>
-            <div class="center">
-                <label for="algos">Choose an algorithm:</label>
-                <select style="border-radius:10px;" name="algos" id="algos" onchange="toggletextinput()">
-                    <option value="merge">Mergesort</option>
-                    <option value="insert">Insertion Sort</option>
-                    <option value="select">Selection Sort</option>
-                    <option value="bubble">Bubble Sort</option>
-                    <option value="quick">Quicksort</option>
-                    <option value="heap">Heapsort</option>
-                    <option value="count">Counting Sort</option>
-                    <option value="radix">Radix Sort</option>
-                    <option value="bucket">Bucket Sort</option>
-                    <option value="bogo">Bogosort</option>
-                </select>
-                <br><br>
-                <input type='text' id='inputfield' style="width:250px;border-radius:10px;padding-left: 7px;" placeholder='example: enter [3,1,2] as 3 1 2'><br><br>
-                <div id="numbuckets" class="hidden">
-                    <h4>If you want to choose your number of buckets please enter it below,<br>blank or input<1 will result in the automatic use the square root of n</h4>
-                    <input style="border-radius:10px;padding-left: 7px;" type="text" id="tinput" placeholder="# of buckets">
-                    <br><br>
+            <h1>Algo Tracer</h1>
+            <h5>Created by Jacinto Gomez</h5>
+            <h4>Choose an algorithm and an array to sort step by step</h4>
+            <div class="directions">
+                <div class="field"></div>
+                <div class="field">
+                    <label for="algos">Choose algorithm:</label>
+                    <select style="border-radius:10px;" name="algos" id="algos" onchange="toggletextinput()">
+                        <option value="merge">Mergesort</option>
+                        <option value="insert">Insertion Sort</option>
+                        <option value="select">Selection Sort</option>
+                        <option value="bubble">Bubble Sort</option>
+                        <option value="quick">Quicksort</option>
+                        <option value="heap">Heapsort</option>
+                        <option value="count">Counting Sort</option>
+                        <option value="radix">Radix Sort</option>
+                        <option value="bucket">Bucket Sort</option>
+                        <option value="bogo">Bogosort</option>
+                    </select>
+                    <input style="margin:10px;width:200px" type='text' id='inputfield' placeholder='example: enter [3,1,2] as 3 1 2'><br>
+                    <button onclick='main(document.getElementById("algos").value,document.getElementById("inputfield").value,document.getElementById("tinput").value)'>Sort</button>
                 </div>
-                <button style="font-size:20px;">Sort</button>
-                <br><br>
+                <div class="field">
+                    <div style="position:absolute;" id="numbuckets" class="hidden">
+                        <h4 style="padding-top:0;margin-top:0;padding-left:5%;padding-right:5%;">Choose number of buckets here; blank, 0, and negative input results in automatic use of sqrt(n)</h4>
+                        <input style="padding-top:2px;" type="text" id="tinput" placeholder="# of buckets">
+                        <br><br>
+                    </div>
+                </div>
             </div>
             <div class='console' id="output"></div>
         </div>
     </div>
     <script src="{% static 'javascript/sorting.js' %}"></script>
-    <script>
-        const btn=document.querySelector("button");
-        btn.onclick=function(e){
-            main(document.getElementById("algos").value,document.getElementById("inputfield").value,document.getElementById("tinput").value);
-            let ripple=document.createElement("span");
-            ripple.classList.add("ripple");
-            this.appendChild(ripple);
-            let x=e.clientX-e.target.offsetLeft;
-            let y=e.clientY-e.target.offsetTop;
-            ripple.style.left=`${x}px`;
-            ripple.style.top=`${y}px`;
-            setTimeout(()=>{
-                ripple.remove();
-            },300);
-        };
-    </script>
 </body>
 </html>
