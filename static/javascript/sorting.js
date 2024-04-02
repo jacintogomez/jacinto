@@ -459,7 +459,7 @@ function printsortedportionquick(index,ve){
     let spacesuptopivot=countspacesbubble(ve,index+1)-2;
     let pivotspaces=spacesuptopivot-spacestoindex-1;
     let afterpiv=totalchars-spacesuptopivot-1;
-    appendtext(" <-- Pivot="+ve[index]+", anything greater moved to left of it, smaller to right");
+    appendtext(" <-- Pivot is "+ve[index]+", numbers greater than it placed to the left, smaller to the right");
     if(index!==0){addtext("|");}
     else{spacestoindex++;}
     for(let i=1;i<=spacestoindex;i++){addtext("_");}
