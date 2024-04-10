@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import {STLLoader} from '/node_modules/three/examples/jsm/loaders/STLLoader.js';
+import {STLLoader} from './node_modules/three/examples/jsm/loaders/STLLoader.js';
 
 const scenes=[];
 const cams=[];
 const rends=[];
-const base='/stls/'
+const base='/static/stls/'
 const stlfiles=[
     fix('rigalfamily'),
     fix('rigalfamily'),
@@ -39,7 +39,7 @@ const meshes=[];
 for(let i=0;i<numcontainers;i++){
     const loader=new STLLoader();
     loader.load(stlfiles[i],function(geometry){
-        const material=new THREE.MeshPhongMaterial({color:'blue'});
+        const material=new THREE.MeshPhongMaterial({color:'lightblue'});
         const mesh=new THREE.Mesh(geometry,material);
         mesh.rotation.x=-Math.PI/2;
         mesh.position.y=-50;

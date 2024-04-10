@@ -1,0 +1,7 @@
+{
+  "name": "jacinto",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.163.0"
+  }
+}
