@@ -21,10 +21,6 @@ def algos_page(request):
     return render(request, "algoconsole.html", {})
 
 
-def artwork_page(request):
-    return render(request, "artwork.html", {})
-
-
 def brackets_page(request):
     return render(request, "brackets.html", {})
 
@@ -49,24 +45,12 @@ def d3aiddata(request):
     return render(request, "d3pages/d3aiddata.html", {})
 
 
-def goals_page(request):
-    return render(request, "goals.html", {})
-
-
-def mechanical_projects_page(request):
-    return render(request, "mechanical.html", {})
-
-
 def palloc_page(request):
     return render(request, "payalloc.html", {})
 
 
 def projects_page(request):
     return render(request, "projects.html", {})
-
-
-def work_experience_page(request):
-    return render(request, "workexperience.html", {})
 
 def contact_form(request):
     if request.method == 'POST':
@@ -85,11 +69,18 @@ def contact_form(request):
         form = ContactForm()
     return render(request, 'contact_form.html', {'form': form})
 
-
 def thank_you_page(request):
     redirect_to='/'
     return render(request, 'thank_you.html', {'redirect_url':redirect_to})
 
-def does_not_exist(request):
-    redirect_to='/'
-    return render(request, 'does_not_exist.html', {'redirect_url':redirect_to})
+def battleship_page(request):
+    return render(request, "battleship.html", {})
+
+def nycaccess_page(request):
+    return render(request, "nycaccess.html", {})
+
+def lithophanes_page(request):
+    return render(request, "lithophanes.html", {})
+
+def nyual_page(request):
+    return render(request, "nyual.html", {})
