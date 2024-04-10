@@ -6,9 +6,62 @@
     <title>Lithophanes</title>
     <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
     <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+                "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js",
+                "STLLoader": "https://unpkg.com/three@0.138.0/examples/jsm/loaders/STLLoader.js"
+            }
+        }
+    </script>
+    <style>
+        body{
+            background-color: white;
+            color: black;
+            margin: 0;
+            text-align: center;
+        }
+        .mod-row{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 3%;
+            border-radius: 20px;
+            background-color: blue;
+        }
+        .model-container{
+            flex: 1;
+            margin: 2%;
+            padding: 2%;
+            border-radius: 20px;
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
     {% include 'common/navbar.html' %}
     <h1 class="page-title">3D Printed Lithophanes</h1>
+    <div class="mod-row">
+        <div class="model-container" id="mc1">
+            <script type="module" src="{% static 'javascript/stlload.js' %}"></script>
+        </div>
+        <div class="model-container" id="mc2">
+            <script type="module" src="{% static 'javascript/stlload.js' %}"></script>
+        </div>
+        <div class="model-container" id="mc3">
+            <script type="module" src="{% static 'javascript/stlload.js' %}"></script>
+        </div>
+    </div>
+    <div class="mod-row">
+        <div class="model-container" id="mc4">
+            <script type="module" src="{% static 'javascript/stlload.js' %}"></script>
+        </div>
+        <div class="model-container" id="mc5">
+            <script type="module" src="{% static 'javascript/stlload.js' %}"></script>
+        </div>
+        <div class="model-container" id="mc6">
+            <script type="module" src="{% static 'javascript/stlload.js' %}"></script>
+        </div>
+    </div>
 </body>
 </html>
