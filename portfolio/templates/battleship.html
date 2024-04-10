@@ -37,6 +37,18 @@
             color: white;
             text-align: center;
         }
+        .gitlink{
+            display: flex;
+            justify-content: center;
+        }
+        .gitlink img{
+            height: 50px;
+            width: auto;
+        }
+        .gitlink img:hover{
+            transform: scale(1.15);
+            transition: .3s;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +56,7 @@
     <h1 class="page-title">Java Battleship Game</h1>
     <div class="img-row">
         <div class="img-container" id="mc1">
-            <img src="{% static 'img/bslogin.png' %}"></img>
+            <img src="{% static 'img/bslogin.png' %}">
         </div>
         <div class="img-container" id="mc1">
             <div class="text-container">
@@ -54,11 +66,14 @@
     </div>
     <div class="img-row">
         <div class="img-container" id="mc4">
-            <img src="{% static 'img/bsgameplay.png' %}"></img>
+            <img src="{% static 'img/bsgameplay.png' %}">
         </div>
         <div class="img-container" id="mc4">
-            <img src="{% static 'img/bswinscreen.png' %}"></img>
+            <img src="{% static 'img/bswinscreen.png' %}">
         </div>
     </div>
+    <a class="gitlink" href="https://github.com/jacintogomez/Battleship" target="_blank">
+        <img src="{% static 'img/github-logo.png' %}" alt="git logo">
+    </a>
 </body>
 </html>
