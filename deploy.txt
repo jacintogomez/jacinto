@@ -1,0 +1,6 @@
+AWS
+1. Configure .aws/config with secret key
+2. Add requirements file: $ pip freeze > requirements.txt
+3. Check associated url: $ eb status
+4. Deploy: $ eb deploy
+5. Open: $ eb open
