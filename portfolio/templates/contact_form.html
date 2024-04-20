@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Feedback Form</title>
+        <title>Send a Message</title>
         <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
         <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
         <style>
@@ -36,7 +36,7 @@
     </head>
     <body>
         {% include 'common/navbar.html' %}
-        <h1 class="page-title">Feedback</h1>
+        <h1 class="page-title">Send a Message</h1>
         <div class="formcontent">
             <div class="left">
                 <form method="post" action="{% url 'contact_form' %}">
