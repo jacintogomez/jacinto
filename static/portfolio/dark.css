@@ -71,7 +71,7 @@ a.proj-home-link{
     padding: 10px;
     color: white;
     text-decoration: none;
-    transition: transform .3s;
+    transition: transform .3s, background-color 0.5s, color 0.5s;;
 }
 a.proj-home-link:hover{
     transform: scale(1.05);
@@ -115,6 +115,7 @@ body, ul{
 body{
     background: black;
     color: white;
+    transition: background-color 0.5s, color 0.5s;
 }
 .navbar {
     background-color: #7600BC;
