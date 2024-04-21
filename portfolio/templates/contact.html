@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Contact Me</title>
     <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link id="mode" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
     <style>
         img{
@@ -24,28 +25,6 @@
         .inner-image img{
             max-width: 80%;
             height: auto;
-        }
-        .contact-block{
-            flex: 1;
-            display: flex;
-            background-color: lightblue;
-            margin: 10px;
-            border-radius: 50px;
-            border-style: solid;
-            border-color: #338D91;
-            border-width: 10px;
-            transition: .5s;
-        }
-        .gm-block{
-            flex: 1;
-            display: flex;
-            background-color: lightblue;
-            margin: 10px;
-            border-radius: 50px;
-            border-style: solid;
-            border-color: #338D91;
-            border-width: 10px;
-            transition: .5s;
         }
         .block-row{
             display: flex;
@@ -118,5 +97,6 @@
             </div>
         </a>
     </div>
+    <script src="{% static 'javascript/dark_switch.js' %}"></script>
 </body>
 </html>

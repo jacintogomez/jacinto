@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>Jacinto Gomez</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link id="styles" rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link id="mode" rel="stylesheet">
     <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
     <style>
         img{
@@ -43,6 +44,7 @@
 <body>
     {%  include 'common/navbar.html' %}
     <h1 class="page-title">Personal Website</h1>
+    <button onclick="switchmode()">dark</button>
     <div class="lrcontainer">
         <div class="left">
             <img src="../static/img/instagram-profile.jpeg">
@@ -55,7 +57,6 @@
                 <a class="proj-home-link" href="/algoconsole">Algorithms</a>
                 <a class="proj-home-link" href="/algoconsole">AI Whitepaper Analysis</a>
             </div>
-            <button onclick="switchmode()">dark</button>
         </div>
     </div>
     <script src="{% static 'javascript/dark_switch.js' %}"></script>

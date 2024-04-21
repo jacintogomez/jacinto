@@ -4,10 +4,13 @@
 <head>
     <meta charset="utf-8">
     <title>500 Error</title>
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link id="mode" rel="stylesheet">
     <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
 </head>
 <body>
-    {% inlcude 'common/navbar.html' %}
+    {% include 'common/navbar.html' %}
     <h1>500: Bad Gateway!</h1>
+    <script src="{% static 'javascript/dark_switch.js' %}"></script>
 </body>
 </html>

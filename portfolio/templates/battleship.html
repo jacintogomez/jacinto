@@ -5,49 +5,12 @@
     <meta charset="utf-8">
     <title>Battleship</title>
     <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link id="mode" rel="stylesheet">
     <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
     <style>
         img{
             max-width: 100%;
             height: auto;
-        }
-        .img-row{
-            display: flex;
-            justify-content: space-evenly;
-            margin: 3%;
-            border-radius: 20px;
-            background-color: #338D91;
-        }
-        .img-container{
-            flex: 1;
-            margin: 2%;
-            padding: 2%;
-            border-radius: 20px;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .text-container{
-            flex: 1;
-            margin: 2%;
-            padding: 2%;
-            border-radius: 20px;
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        .gitlink{
-            display: flex;
-            justify-content: center;
-        }
-        .gitlink img{
-            height: 50px;
-            width: auto;
-        }
-        .gitlink img:hover{
-            transform: scale(1.15);
-            transition: .3s;
         }
     </style>
 </head>
@@ -75,5 +38,6 @@
     <a class="gitlink" href="https://github.com/jacintogomez/Battleship" target="_blank">
         <img src="{% static 'img/github-logo.png' %}" alt="git logo">
     </a>
+    <script src="{% static 'javascript/dark_switch.js' %}"></script>
 </body>
 </html>

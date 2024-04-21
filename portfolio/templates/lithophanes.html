@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Lithophanes</title>
     <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link id="mode" rel="stylesheet">
     <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
     <script type="importmap">
         {
@@ -19,20 +20,6 @@
         body{
             margin: 0;
             text-align: center;
-        }
-        .mod-row{
-            display: flex;
-            justify-content: space-evenly;
-            margin: 3%;
-            border-radius: 20px;
-            background-color: #338D91;
-        }
-        .model-container{
-            flex: 1;
-            margin: 2%;
-            padding: 2%;
-            border-radius: 20px;
-            background-color: black;
         }
     </style>
 </head>
@@ -61,5 +48,6 @@
             <script type="module" src="{% static 'javascript/stlload.js' %}"></script>
         </div>
     </div>
+    <script src="{% static 'javascript/dark_switch.js' %}"></script>
 </body>
 </html>

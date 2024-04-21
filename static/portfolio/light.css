@@ -1,14 +1,14 @@
 a.link-box, a.proj-home-link{
-    background-color: #7700BC;
-    border-color: mediumpurple;
+    background-color: #338D91;
+    border-color: white;
     color: white;
 }
 .picture-oval{
-    border-color: black;
-    background-color: black;
+    border-color: white;
+    background-color: white;
 }
 .img-row{
-    background-color: #7600BC;
+    background-color: #338D91;
 }
 .img-container{
     background-color: black;
@@ -18,23 +18,24 @@ a.link-box, a.proj-home-link{
     color: white;
 }
 .mod-row{
-    background-color: #7600BC;
+    background-color: #338D91;
 }
 .model-container{
     background-color: black;
 }
 .contact-block, .gm-block{
-    background-color: mediumpurple;
-    border-color: #7600BC;
+    background-color: lightblue;
+    border-color: #338D91;
 }
+
 
 
 body{
-    background: black;
-    color: white;
+    background: lightblue;
+    color: black;
 }
 .navbar{
-    background-color: #7700BC;
+    background-color: #338D91;
 }
 .navbar-brand, .nav-link{
     color: white;
