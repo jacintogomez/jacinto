@@ -5,40 +5,59 @@
     <meta charset="utf-8">
     <title>Jacinto Gomez</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link id="styles" rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
     <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
     <style>
-        body{
-            background-color: lightblue;
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10%;
+            align-items: center;
+            max-width: 50%;
+            height: auto;
+        }
+        .lrcontainer{
+            display: flex;
+        }
+        .left{
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            padding-top: 40px;
+        }
+        .right{
+            flex: 1;
+            padding-top: 40px;
+        }
+        .top-projects{
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
     </style>
 </head>
 <body>
     {%  include 'common/navbar.html' %}
-    <div class="center">
-        <h1>Welcome!</h1>
-        <div class="extern">
-            <a class="link-box" href="/sortingalgos">Algorithms</a>
-            <a class="link-box" href="https://bigocalculator-8da3a7585c6b.herokuapp.com/">Big-O Calculator</a>
-            <a class="link-box" href="https://ai-summarize-373bb96bd4ad.herokuapp.com/">AI Whitepaper Analyzer</a>
+    <h1 class="page-title">Personal Website</h1>
+    <div class="lrcontainer">
+        <div class="left">
+            <img src="../static/img/instagram-profile.jpeg">
         </div>
-        <div class="extern">
-            <a class="link-box" href="/nycaccess">NYC Accessible Streets</a>
-            <a class="link-box" href="/brackets">Tournament Brackets</a>
-            <a class="link-box" href="/lithophanes">Lithophanes</a>
-            <a class="link-box" href="/battleship">Battleship</a>
-        </div>
-        <div class="extern">
-            <a class="link-box" href="/palloc">Payment Allocator</a>
-            <a class="link-box" href="/nyual">Augmented Library</a>
-            <a class="link-box" href="/d3hatecrimes">Crime Statistics</a>
-        </div>
-        <div class="extern">
-            <a class="link-box" href="/about">About</a>
-            <a class="link-box" href="/d3aiddata">World Aid Data</a>
-            <a class="link-box" href="/contact">Planet Birthdays</a>
-            <a class="link-box" href="/contact">Contact Me</a>
+        <div class="right">
+            <h1 class="page-title">Top Projects:</h1>
+            <div class="top-projects">
+                <a class="proj-home-link" href="/algoconsole">Foreign Conversation</a>
+                <a class="proj-home-link" href="/algoconsole">Big-O Calculator</a>
+                <a class="proj-home-link" href="/algoconsole">Algorithms</a>
+                <a class="proj-home-link" href="/algoconsole">AI Whitepaper Analysis</a>
+            </div>
+            <button onclick="switchmode()">dark</button>
         </div>
     </div>
+    <script src="{% static 'javascript/dark_switch.js' %}"></script>
 </body>
 </html>

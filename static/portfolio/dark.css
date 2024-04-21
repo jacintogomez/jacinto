@@ -13,7 +13,7 @@ a.link-box{
     border-style: solid;
     border-color: white;
     border-width: 5px;
-    background-color: #338D91;
+    background-color: #7600BC;
     display: inline-block; /*consistent width and height*/
     width: 200px;
     height: 100px;
@@ -60,7 +60,7 @@ a.link-box:hover{
     flex: 1;
 }
 a.proj-home-link{
-    background-color: #338D91;
+    background-color: #7600BC;
     border-style: solid;
     border-color: white;
     border-width: 5px;
@@ -113,11 +113,11 @@ body, ul{
     padding: 0;
 }
 body{
-    background: lightblue;
-    color: black;
+    background: black;
+    color: white;
 }
 .navbar {
-    background-color: #338D91;
+    background-color: #7600BC;
     display: flex;
     justify-content: space-between;
     align-items: center;
