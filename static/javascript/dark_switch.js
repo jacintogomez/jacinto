@@ -16,7 +16,7 @@ function switchmode(){
 }
 
 function currentsheet(){
-    console.log(document.title+' is now '+localStorage.getItem('darkmode')+' '+typeof(localStorage.getItem('darkmode')));
+    //console.log(document.title+' is now '+localStorage.getItem('darkmode')+' '+typeof(localStorage.getItem('darkmode')));
     if(isdark){
         console.log('loading dark');
         sheet.href=darklink;

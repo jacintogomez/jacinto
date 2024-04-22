@@ -56,10 +56,10 @@ a.link-box:hover{
 a.proj-home-link{
     border-style: solid;
     border-width: 5px;
-    border-radius: 5px;
+    border-radius: 20px;
     width: 400px;
-    height: 300px;
-    margin: 25px;
+    line-height: 36px;
+    margin: 10px;
     padding: 10px;
     text-decoration: none;
     transition: transform .3s, background-color 0.5s, color 0.5s;
