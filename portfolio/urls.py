@@ -20,4 +20,5 @@ urlpatterns = [
     path('nycaccess/', views.nycaccess_page, name='nycaccess'),
     path('lithophanes/', views.lithophanes_page, name='lithophanes'),
     path('nyual/', views.nyual_page, name='nyual'),
+    path('ml5/', views.ml5_page, name='ml5'),
 ]

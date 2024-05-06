@@ -84,3 +84,6 @@ def lithophanes_page(request):
 
 def nyual_page(request):
     return render(request, "nyual.html", {})
+
+def ml5_page(request):
+    return render(request, "ml5.html", {})
