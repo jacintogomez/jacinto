@@ -1,26 +1,64 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>ml5 Detection</title>
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link id="mode" rel="stylesheet">
+    <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-    <script src="detect_from_webcam.js">
-        let img;
+    <script>
+        let video;
         let detector;
-        //img.crossOrigin='Anonymous';
+        let darr=[]; //detection array
+        img.crossOrigin='Anonymous';
 
         function preload(){
-            img=loadImage('img/puffin.jpg');
             detector=ml5.objectDetector('cocossd');
+        }
+
+        function modelready(){
+            console.log('Model is ready!');
+            begindet();
+        }
+
+        function begindet(){
+            detector.detect(video,gotdetections);
         }
 
         function gotdetections(error,results){
             if(error){console.error(error);}
-            console.log(results);
-            for(let i=0;i<results.length;i++){
-                let ob=results[i];
+            else{
+                console.log(results);
+                darr=results;
+                setTimeout(function(){
+                    detector.detect(video,gotdetections);
+                },100);
+                //detector.detect(video,gotdetections);
+            }
+        }
+
+        function setup(){
+            const ht=480;
+            const wd=640;
+            createCanvas(wd,ht);
+            video=createCapture(VIDEO);
+            video.size(wd,ht);
+            video.hide();
+            detectobjects=detector.detect(video,modelready);
+            video.elt.addEventListener('loadeddata', begindet);
+            document.getElementById('content').appendChild(canvas);
+            document.getElementById('content').height=ht;
+            document.getElementById('content').width=wd;
+        }
+
+        function draw(){
+            image(video,0,0);
+            for(let i=0;i<darr.length;i++){
+                let ob=darr[i];
                 let xnorm=ob.normalized.x*width;
                 let ynorm=ob.normalized.y*height;
                 let wnorm=ob.normalized.width*width;
@@ -35,19 +73,10 @@
                 text(ob.label+', with '+(ob.confidence*100).toFixed(2)+'% confidence',xnorm+10,ynorm+24);
             }
         }
-
-        function setup(){
-            createCanvas(640,480);
-            //canvas.parent('content');
-            image(img,0,0,width,height);
-            detector.detect(img,gotdetections);
-            document.getElementById('content').appendChild(canvas);
-        }
     </script>
     <style>
         body{
             text-align: center;
-            margin: 3%;
         }
         .viewbox{
             display: flex;
@@ -67,11 +96,13 @@
     </style>
 </head>
 <body>
+    {% include 'common/navbar.html' %}
     <h1>Object Detection with ml5.js</h1>
     <div class="viewbox">
         <div class="camera" id="content">
 
         </div>
     </div>
+    <script src="{% static 'javascript/dark_switch.js' %}"></script>
 </body>
 </html>
