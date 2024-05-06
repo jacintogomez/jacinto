@@ -69,6 +69,6 @@ window.addEventListener('beforeunload',function(event){
     if(protect_input){
         event.preventDefault();
         event.returnValue='';
-        return 'Warning: tournament is not finished yet. Are you sure you want to exit?';
+        return 'Warning: tournament is in progress. Are you sure you want to exit?';
     }
 });
