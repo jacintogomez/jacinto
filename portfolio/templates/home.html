@@ -9,6 +9,103 @@
     <link id="mode" rel="stylesheet">
     <link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
     <style>
+        body{
+            margin: 0;
+        }
+        .sky{
+            width: 100vw;
+            height: 100vh;
+            background-color: skyblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: none;
+            animation-name: none;
+            position: absolute;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .sun, .moon{
+            position: absolute;
+            width: 50vmin;
+            height: 50vmin;
+            border-radius: 50%;
+        }
+        .sun{
+            background-color: gold;
+            animation: none;
+            animation-name: none;
+        }
+        .moon{
+            background-color: slategray;
+            animation: none;
+            animation-name: none;
+            visibility: hidden;
+        }
+        @keyframes animate-sky-in{
+            from{
+                background-color: skyblue;
+            }
+            50%{
+                background-color: skyblue;
+            }
+            to{
+                background-color: black;
+            }
+        }
+        @keyframes animate-sky-out{
+            from{
+                background-color: black;
+            }
+            50%{
+                background-color: skyblue;
+            }
+            to{
+                background-color: skyblue;
+            }
+        }
+        @keyframes animate-sun-in{
+            from{
+                box-shadow: none;
+            }
+            to{
+                box-shadow: 0 0 5em 1em white;
+            }
+        }
+        @keyframes animate-sun-out{
+            from{
+                box-shadow: 0 0 5em 1em white;
+            }
+            to{
+                box-shadow: none;
+            }
+        }
+        @keyframes animate-moon-in{
+            from{
+                background-color: slategray;
+                transform: translateX(-150vmin);
+            }
+            50%{
+                background-color: slategray;
+            }
+            to{
+                background-color: black;
+                transform: translateX(0);
+            }
+        }
+        @keyframes animate-moon-out{
+            from{
+                background-color: black;
+                transform: translateX(0vmin);
+            }
+            50%{
+                background-color: slategray;
+            }
+            to{
+                background-color: slategray;
+                transform: translateX(150vmin);
+            }
+        }
         img{
             display: block;
             margin-left: auto;
@@ -59,7 +156,11 @@
 <body>
     {%  include 'common/navbar.html' %}
     <h1 class="page-title">Personal Website</h1>
-    <button onclick="switchmode()">dark</button>
+    <button onclick="activateanimation()">dark</button>
+    <div id="sky" class="sky">
+        <div id="sun" class="sun"></div>
+        <div id="moon" class="moon"></div>
+    </div>
     <div class="lrcontainer">
         <div class="left">
             <img src="../static/img/instagram-profile.jpeg">
@@ -70,10 +171,57 @@
                 <a class="proj-home-link" href="/aiconvo">Foreign Conversation</a>
                 <a class="proj-home-link" href="https://bigocalculator-8da3a7585c6b.herokuapp.com/">Big-O Calculator</a>
                 <a class="proj-home-link" href="/sortingalgos">Sorting Algorithms</a>
-                <a class="proj-home-link" href="/ml5">ml5 Object Detection</a>
+                <a class="proj-home-link" href="/ml5">ml5.js Object Detection</a>
             </div>
         </div>
     </div>
     <script src="{% static 'javascript/dark_switch.js' %}"></script>
+    <script>
+        var elements=[
+            document.getElementById('sky'),
+            document.getElementById('sun'),
+            document.getElementById('moon')
+        ];
+        let first=true;
+        let moon=document.getElementById('moon');
+        let sun=document.getElementById('sun');
+        let sky=document.getElementById('sky');
+        function half1(els){
+            els.forEach(function(element){
+                element.style.animation='3s ease-out';
+                element.style.animationName='animate-'+element.id+'-in';
+            });
+            console.log('switching to night mode');
+            moon.style.visibility='visible';
+            moon.style.backgroundColor='black';
+            sky.style.backgroundColor='black';
+            sun.style.boxShadow='0 0 5em 1em white';
+        }
+        function half2(els){
+            els.forEach(function(element){
+                element.style.animation='3s ease-in';
+                element.style.animationName='animate-'+element.id+'-out';
+            });
+            setTimeout(function(){
+                moon.style.visibility='hidden';
+            },3000);
+            console.log('switching to day mode');
+            moon.style.visibility='none';
+            sky.style.backgroundColor='skyblue';
+            sun.style.boxShadow='none';
+        }
+        function toggleanimation(){
+            if(first){
+                half1(elements);
+            }else{
+                half2(elements);
+            }
+            first=!first;
+        }
+        function activateanimation(){
+            toggleanimation();
+            switchmode();
+        }
+    </script>
 </body>
 </html>
