@@ -4,10 +4,14 @@ let darklink="../static/portfolio/dark.css";
 let isdark=(localStorage.getItem('darkmode')==="true");
 
 function switchmode(){
+    console.log('in there');
     if(sheet.href.includes('light.css')){
-        sheet.href=darklink;
-        localStorage.setItem('darkmode',true);
-        isdark=true;
+        setTimeout(function(){
+            sheet.href=darklink;
+            localStorage.setItem('darkmode',true);
+            isdark=true;
+            console.log('fat bitches');
+        },3000);
     }else{
         sheet.href=lightlink;
         localStorage.setItem('darkmode',false);
@@ -16,7 +20,7 @@ function switchmode(){
 }
 
 function currentsheet(){
-    //console.log(document.title+' is now '+localStorage.getItem('darkmode')+' '+typeof(localStorage.getItem('darkmode')));
+    console.log(document.title+' is now '+localStorage.getItem('darkmode')+' '+typeof(localStorage.getItem('darkmode')));
     if(isdark){
         console.log('loading dark');
         sheet.href=darklink;
