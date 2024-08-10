@@ -218,16 +218,14 @@
                 sun.style.boxShadow='none';
             }
             function toggleanimation(){
-                if(first){
-                    half1(elements);
-                }else{
-                    half2(elements);
-                }
+                if(first){half1(elements);}
+                else{half2(elements);}
                 first=!first;
             }
             function activateanimation(){
                 toggleanimation();
                 switchmode();
+                console.log('cook some eggs');
             }
         </script>
     </div>

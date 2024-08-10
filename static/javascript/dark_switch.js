@@ -11,7 +11,7 @@ function switchmode(){
             localStorage.setItem('darkmode',true);
             isdark=true;
             console.log('fat bitches');
-        },3000);
+        },2500);
     }else{
         sheet.href=lightlink;
         localStorage.setItem('darkmode',false);
