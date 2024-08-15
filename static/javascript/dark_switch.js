@@ -4,13 +4,11 @@ let darklink="../static/portfolio/dark.css";
 let isdark=(localStorage.getItem('darkmode')==="true");
 
 function switchmode(){
-    console.log('in there');
     if(sheet.href.includes('light.css')){
         setTimeout(function(){
             sheet.href=darklink;
             localStorage.setItem('darkmode',true);
             isdark=true;
-            console.log('fat bitches');
         },2500);
     }else{
         sheet.href=lightlink;
