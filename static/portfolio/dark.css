@@ -27,6 +27,11 @@ a.link-box, a.proj-home-link{
     background-color: mediumpurple;
     border-color: #7600BC;
 }
+#drk{
+    color: white;
+    background-color: #7600BC;
+    border-color: mediumpurple;
+}
 
 
 body{

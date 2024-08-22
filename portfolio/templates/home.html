@@ -29,87 +29,6 @@
             overflow: hidden;
             padding: 0;
         }
-        .sun, .moon{
-            position: absolute;
-            width: 50vmin;
-            height: 50vmin;
-            border-radius: 50%;
-        }
-        .sun{
-            background-color: gold;
-            animation: none;
-            animation-name: none;
-        }
-        .moon{
-            background-color: slategray;
-            animation: none;
-            animation-name: none;
-            visibility: hidden;
-        }
-        @keyframes animate-sky-in{
-            from{
-                background-color: lightblue;
-            }
-            50%{
-                background-color: lightblue;
-            }
-            to{
-                background-color: black;
-            }
-        }
-        @keyframes animate-sky-out{
-            from{
-                background-color: black;
-            }
-            50%{
-                background-color: lightblue;
-            }
-            to{
-                background-color: lightblue;
-            }
-        }
-        @keyframes animate-sun-in{
-            from{
-                box-shadow: none;
-            }
-            to{
-                box-shadow: 0 0 5em 1em white;
-            }
-        }
-        @keyframes animate-sun-out{
-            from{
-                box-shadow: 0 0 5em 1em white;
-            }
-            to{
-                box-shadow: none;
-            }
-        }
-        @keyframes animate-moon-in{
-            from{
-                background-color: slategray;
-                transform: translateX(-150vmin);
-            }
-            50%{
-                background-color: slategray;
-            }
-            to{
-                background-color: black;
-                transform: translateX(0);
-            }
-        }
-        @keyframes animate-moon-out{
-            from{
-                background-color: black;
-                transform: translateX(0vmin);
-            }
-            50%{
-                background-color: slategray;
-            }
-            to{
-                background-color: slategray;
-                transform: translateX(150vmin);
-            }
-        }
         img{
             display: block;
             position: relative;
@@ -126,11 +45,11 @@
             margin-left: auto;
             margin-right: auto;
             border-radius: 20px;
+            border-width: 3px;
+            border-style: solid;
             height: 30px;
             width: 70px;
-            color: black;
-            background-color: white;
-            transition: transform .3s;
+            transition: transform .3s, background-color 0.5s, color 0.5s;
         }
         button:hover{
             transform: scale(1.1);
@@ -164,10 +83,8 @@
     <div id="sky" class="sky">
         <div class="top">
             <h1 class="page-title">Welcome!</h1>
-            <button onclick="activateanimation()">dark</button>
+            <button id="drk" onclick="switchmode()">☾</button>
         </div>
-        <div id="sun" class="sun"></div>
-        <div id="moon" class="moon"></div>
         <div class="lrcontainer">
             <div class="left">
                 <img src="../static/img/instagram-profile.jpeg">
@@ -183,49 +100,6 @@
             </div>
         </div>
         <script src="{% static 'javascript/dark_switch.js' %}"></script>
-        <script>
-            var elements=[
-                document.getElementById('sky'),
-                document.getElementById('sun'),
-                document.getElementById('moon')
-            ];
-            let first=true;
-            let moon=document.getElementById('moon');
-            let sun=document.getElementById('sun');
-            let sky=document.getElementById('sky');
-            function half1(els){
-                els.forEach(function(element){
-                    element.style.animation='3s ease-out';
-                    element.style.animationName='animate-'+element.id+'-in';
-                });
-                moon.style.visibility='visible';
-                moon.style.backgroundColor='black';
-                sky.style.backgroundColor='black';
-                sun.style.boxShadow='0 0 5em 1em white';
-            }
-            function half2(els){
-                els.forEach(function(element){
-                    element.style.animation='3s ease-in';
-                    element.style.animationName='animate-'+element.id+'-out';
-                });
-                setTimeout(function(){
-                    moon.style.visibility='hidden';
-                },3000);
-                console.log('switching to day mode');
-                moon.style.visibility='none';
-                sky.style.backgroundColor='lightblue';
-                sun.style.boxShadow='none';
-            }
-            function toggleanimation(){
-                if(first){half1(elements);}
-                else{half2(elements);}
-                first=!first;
-            }
-            function activateanimation(){
-                toggleanimation();
-                switchmode();
-            }
-        </script>
     </div>
 </body>
 </html>

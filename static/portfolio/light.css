@@ -27,7 +27,11 @@ a.link-box, a.proj-home-link{
     background-color: lightblue;
     border-color: #338D91;
 }
-
+#drk{
+    color: white;
+    background-color: #338D91;
+    border-color: white;
+}
 
 
 body{
