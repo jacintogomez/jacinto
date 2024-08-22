@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [
     'localhost',
     'pw-env2.eba-q3eqbj6z.us-west-2.elasticbeanstalk.com',
     'jacintogomez.com',
+    'jacinto-gomez.us-west-2.elasticbeanstalk.com',
 ]
 
 
