@@ -3,5 +3,9 @@
   "builds": [
     { "src": "manage.py", "use": "@vercel/python" }
   ],
-  "buildCommand": "pip install -r requirements.txt"
+  "installCommand": "pip install -r requirements.txt",
+  "buildCommand": "python manage.py migrate && python manage.py collectstatic --noinput",
+  "routes": [
+    { "src": "/(.*)", "dest": "manage.py" }
+  ]
 }
